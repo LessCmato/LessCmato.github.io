@@ -1,27 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bebés - V E L U R A</title>
-  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="css/estilos.css" />
 </head>
 <body>
   <header>
     <h1>V E L U R A</h1>
     <nav>
       <ul>
-        <nav>
-  <ul>
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="mujer.html">Mujer</a></li>
-    <li><a href="hombre.html">Hombre</a></li>
-    <li><a href="ninos.html">Niños</a></li>
-    <li><a href="bebes.html">Bebés</a></li>
-    <li><a href="carrito.html">🛒 Carrito</a></li>
-    <li><a href="soporte.html">📨 Soporte</a></li>
-  </ul>
-</nav>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="mujer.html">Mujer</a></li>
+        <li><a href="hombre.html">Hombre</a></li>
+        <li><a href="ninos.html">Niños</a></li>
+        <li><a href="bebes.html">Bebés</a></li>
+        <li><a href="carrito.html">🛒 Carrito</a></li>
+        <li><a href="soporte.html">📨 Soporte</a></li>
       </ul>
     </nav>
   </header>
@@ -34,61 +30,61 @@
 
     <section class="productos">
       <div class="producto">
-        <img src="img/bebo1.jpg" alt="cuna para bebe">
+        <img src="img/bebo1.jpg" alt="Cuna para bebé" />
         <h3>Cuna para bebé</h3>
         <p>$600 MXN</p>
         <button class="agregar-carrito" data-nombre="Cuna para bebé" data-precio="600">Agregar al carrito</button>
       </div>
       <div class="producto">
-        <img src="img/bebedino.jpg" alt="ropa de bebe">
+        <img src="img/bebedino.jpg" alt="Conjunto de bebé (dinosaurio)" />
         <h3>Conjunto de bebé (dinosaurio)</h3>
         <p>$200 MXN</p>
         <button class="agregar-carrito" data-nombre="Conjunto bebé dinosaurio" data-precio="200">Agregar al carrito</button>
       </div>
       <div class="producto">
-        <img src="img/pantalonbebo.jpg" alt="Pantalón de mezclilla">
+        <img src="img/pantalonbebo.jpg" alt="Pantalón de mezclilla verde para bebé" />
         <h3>Pantalón de mezclilla (verde)</h3>
         <p>$210 MXN</p>
         <button class="agregar-carrito" data-nombre="Pantalón de bebé verde" data-precio="210">Agregar al carrito</button>
       </div>
       <div class="producto">
-        <img src="img/zapatosbebo.jpg" alt="Zapatos de bebe">
+        <img src="img/zapatosbebo.jpg" alt="Zapatos para bebé" />
         <h3>Zapatos para bebé</h3>
         <p>$180 MXN</p>
         <button class="agregar-carrito" data-nombre="Zapatos bebé" data-precio="180">Agregar al carrito</button>
       </div>
       <div class="producto">
-        <img src="img/luzositobebo.jpg" alt="luces osito">
+        <img src="img/luzositobebo.jpg" alt="Luces para bebé (osito)" />
         <h3>Luces para bebé (osito)</h3>
         <p>$180 MXN</p>
         <button class="agregar-carrito" data-nombre="Luces osito" data-precio="180">Agregar al carrito</button>
       </div>
       <div class="producto">
-        <img src="img/bodiebebe.jpg" alt="bodies">
+        <img src="img/bodiebebe.jpg" alt="Body para bebé" />
         <h3>Body para bebé</h3>
         <p>$100 MXN</p>
         <button class="agregar-carrito" data-nombre="Body bebé" data-precio="100">Agregar al carrito</button>
       </div>
       <div class="producto">
-        <img src="img/baberopabebe.jpg" alt="babero">
+        <img src="img/baberopabebe.jpg" alt="Babero para bebé" />
         <h3>Babero para bebé</h3>
         <p>$199 MXN</p>
         <button class="agregar-carrito" data-nombre="Babero bebé" data-precio="199">Agregar al carrito</button>
       </div>
       <div class="producto">
-        <img src="img/carriolabebo.jpg" alt="carriola">
+        <img src="img/carriolabebo.jpg" alt="Carriola con Bluetooth 5.4 para bebé" />
         <h3>Carriola con Bluetooth 5.4</h3>
         <p>$3840.98 MXN</p>
         <button class="agregar-carrito" data-nombre="Carriola BT" data-precio="3840.98">Agregar al carrito</button>
       </div>
       <div class="producto">
-        <img src="img/mantapabebe.jpg" alt="manta">
+        <img src="img/mantapabebe.jpg" alt="Manta térmica para bebé" />
         <h3>Manta térmica para bebé</h3>
         <p>$498 MXN</p>
         <button class="agregar-carrito" data-nombre="Manta térmica" data-precio="498">Agregar al carrito</button>
       </div>
       <div class="producto">
-        <img src="img/sonajapabebe.jpg" alt="sonaja">
+        <img src="img/robloc.jpeg" alt="Sonaja para bebé" />
         <h3>Sonaja para bebé</h3>
         <p>$80 MXN</p>
         <button class="agregar-carrito" data-nombre="Sonaja bebé" data-precio="80">Agregar al carrito</button>
@@ -103,13 +99,16 @@
   <script>
     const botones = document.querySelectorAll(".agregar-carrito");
 
-    botones.forEach(boton => {
+    botones.forEach((boton) => {
       boton.addEventListener("click", () => {
         const nombre = boton.getAttribute("data-nombre");
         const precio = parseFloat(boton.getAttribute("data-precio"));
         let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
         carrito.push({ nombre, precio });
+
         localStorage.setItem("carrito", JSON.stringify(carrito));
+
         alert(`"${nombre}" fue agregado al carrito.`);
       });
     });
