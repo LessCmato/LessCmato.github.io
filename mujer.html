@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mujer - V E L U R A</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header>
+    <h1>V E L U R A</h1>
+    <nav>
+      <ul>
+   <nav>
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="mujer.html">Mujer</a></li>
+    <li><a href="hombre.html">Hombre</a></li>
+    <li><a href="ninos.html">Niños</a></li>
+    <li><a href="bebes.html">Bebés</a></li>
+    <li><a href="carrito.html">🛒 Carrito</a></li>
+    <li><a href="soporte.html">📨 Soporte</a></li>
+  </ul>
+</nav>
+      </ul>
+    </nav>
+    <nav>
+  <ul>
+  </header>
+
+  <main>
+    <section class="seccion">
+      <h2>Productos para Mujer</h2>
+      <p>Explora nuestra colección de ropa, zapatos y accesorios para mujer.</p>
+    </section>
+
+    <section class="productos">
+      <div class="producto">
+        <img src="img/vestidorojo.jpg" alt="Vestido rojo">
+        <h3>Vestido rojo elegante</h3>
+        <p>$599 MXN</p>
+        <button class="agregar-carrito" data-nombre="Vestido rojo elegante" data-precio="599">Agregar al carrito</button>
+      </div>
+
+      <div class="producto">
+        <img src="img/blusas.jpg" alt="Blusa casual">
+        <h3>Blusa casual</h3>
+        <p>$349 MXN</p>
+        <button class="agregar-carrito" data-nombre="Blusa casual" data-precio="349">Agregar al carrito</button>
+      </div>
+
+      <div class="producto">
+        <img src="img/pantalon.jpg" alt="Pantalón de mezclilla">
+        <h3>Pantalón de mezclilla</h3>
+        <p>$499 MXN</p>
+        <button class="agregar-carrito" data-nombre="Pantalón de mezclilla" data-precio="499">Agregar al carrito</button>
+      </div>
+
+      <div class="producto">
+        <img src="img/tacones.jpg" alt="Zapatos de tacón">
+        <h3>Zapatos de tacón</h3>
+        <p>$799 MXN</p>
+        <button class="agregar-carrito" data-nombre="Zapatos de tacón" data-precio="799">Agregar al carrito</button>
+      </div>
+
+      <div class="producto">
+        <img src="img/bolso.jpg" alt="Bolso elegante">
+        <h3>Bolso elegante</h3>
+        <p>$429 MXN</p>
+        <button class="agregar-carrito" data-nombre="Bolso elegante" data-precio="429">Agregar al carrito</button>
+      </div>
+
+      <div class="producto">
+        <img src="img/jeansr.jpg" alt="jeans rotos">
+        <h3>Jeans rotos</h3>
+        <p>$380 MXN</p>
+        <button class="agregar-carrito" data-nombre="Jeans rotos" data-precio="380">Agregar al carrito</button>
+      </div>
+
+      <div class="producto">
+        <img src="img/cadenam.jpg" alt="cadena de plata">
+        <h3>Cadena de plata</h3>
+        <p>$500 MXN</p>
+        <button class="agregar-carrito" data-nombre="Cadena de plata" data-precio="500">Agregar al carrito</button>
+      </div>
+
+      <div class="producto">
+        <img src="img/gafasm.jpg" alt="gafas de sol">
+        <h3>Gafas de sol</h3>
+        <p>$89.98 MXN</p>
+        <button class="agregar-carrito" data-nombre="Gafas de sol" data-precio="89.98">Agregar al carrito</button>
+      </div>
+
+      <div class="producto">
+        <img src="img/mochilam.jpg" alt="mochila">
+        <h3>Mochila</h3>
+        <p>$340 MXN</p>
+        <button class="agregar-carrito" data-nombre="Mochila" data-precio="340">Agregar al carrito</button>
+      </div>
+
+      <div class="producto">
+        <img src="img/sudaderam.jpg" alt="sudadera">
+        <h3>Sudadera (negra)</h3>
+        <p>$340 MXN</p>
+        <button class="agregar-carrito" data-nombre="Sudadera negra" data-precio="340">Agregar al carrito</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><a href="index.html">← Volver al inicio</a></p>
+  </footer>
+
+  <script>
+    const botones = document.querySelectorAll(".agregar-carrito");
+
+    botones.forEach(boton => {
+      boton.addEventListener("click", () => {
+        const nombre = boton.getAttribute("data-nombre");
+        const precio = parseFloat(boton.getAttribute("data-precio"));
+        
+        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        carrito.push({ nombre, precio });
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+
+        alert(`"${nombre}" fue agregado al carrito.`);
+      });
+    });
+  </script>
+</body>
+</html>

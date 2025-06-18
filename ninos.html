@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Niños - V E L U R A</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header>
+    <h1>V E L U R A</h1>
+    <nav>
+      <ul>
+        <nav>
+  <ul>
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="mujer.html">Mujer</a></li>
+    <li><a href="hombre.html">Hombre</a></li>
+    <li><a href="ninos.html">Niños</a></li>
+    <li><a href="bebes.html">Bebés</a></li>
+    <li><a href="carrito.html">🛒 Carrito</a></li>
+    <li><a href="soporte.html">📨 Soporte</a></li>
+  </ul>
+</nav>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="seccion">
+      <h2>Productos para Niños</h2>
+      <p>VELURA te ofrece ropa, zapatos, juguetes y más para los más traviesos del hogar.</p>
+    </section>
+
+    <section class="productos">
+      <div class="producto">
+        <img src="img/playeraniño.jpg" alt="Playera">
+        <h3>Playera infantil</h3>
+        <p>$199 MXN</p>
+        <button class="agregar-carrito" data-nombre="Playera infantil" data-precio="199">Agregar al carrito</button>
+      </div>
+
+      <div class="producto">
+        <img src="img/pantalonpaniños.jpg" alt="Pantalón">
+        <h3>Pantalón para niños</h3>
+        <p>$250 MXN</p>
+        <button class="agregar-carrito" data-nombre="Pantalón para niños" data-precio="250">Agregar al carrito</button>
+      </div>
+
+      <div class="producto">
+        <img src="img/sueterpaniños.jpg" alt="Suéter">
+        <h3>Suéter para niño</h3>
+        <p>$310 MXN</p>
+        <button class="agregar-carrito" data-nombre="Suéter para niño" data-precio="310">Agregar al carrito</button>
+      </div>
+
+      <div class="producto">
+        <img src="img/tenispaniño.jpg" alt="Tenis">
+        <h3>Tenis para niño</h3>
+        <p>$389 MXN</p>
+        <button class="agregar-carrito" data-nombre="Tenis para niño" data-precio="389">Agregar al carrito</button>
+      </div>
+
+      <div class="producto">
+        <img src="img/gorrapaniño.jpg" alt="Gorra">
+        <h3>Gorra para niños</h3>
+        <p>$89 MXN</p>
+        <button class="agregar-carrito" data-nombre="Gorra para niños" data-precio="89">Agregar al carrito</button>
+      </div>
+
+      <div class="producto">
+        <img src="img/bufandaniño.jpg" alt="Bufanda">
+        <h3>Bufanda para niños</h3>
+        <p>$89 MXN</p>
+        <button class="agregar-carrito" data-nombre="Bufanda para niños" data-precio="89">Agregar al carrito</button>
+      </div>
+
+      <div class="producto">
+        <img src="img/deponiños.jpg" alt="Conjunto deportivo">
+        <h3>Conjunto deportivo</h3>
+        <p>$368 MXN</p>
+        <button class="agregar-carrito" data-nombre="Conjunto deportivo" data-precio="368">Agregar al carrito</button>
+      </div>
+
+      <div class="producto">
+        <img src="img/mochilaniños.jpg" alt="Mochila">
+        <h3>Mochila para niños</h3>
+        <p>$500 MXN</p>
+        <button class="agregar-carrito" data-nombre="Mochila niños" data-precio="500">Agregar al carrito</button>
+      </div>
+
+      <div class="producto">
+        <img src="img/pijamapachilds.jpg" alt="Pijama">
+        <h3>Pijama para niños</h3>
+        <p>$340 MXN</p>
+        <button class="agregar-carrito" data-nombre="Pijama niños" data-precio="340">Agregar al carrito</button>
+      </div>
+
+      <div class="producto">
+        <img src="img/zapasluz.jpg" alt="Tenis luminosos">
+        <h3>Tenis luminosos</h3>
+        <p>$410 MXN</p>
+        <button class="agregar-carrito" data-nombre="Tenis luminosos" data-precio="410">Agregar al carrito</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><a href="index.html">← Volver al inicio</a></p>
+  </footer>
+
+  <script>
+    const botones = document.querySelectorAll(".agregar-carrito");
+
+    botones.forEach(boton => {
+      boton.addEventListener("click", () => {
+        const nombre = boton.getAttribute("data-nombre");
+        const precio = parseFloat(boton.getAttribute("data-precio"));
+        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        carrito.push({ nombre, precio });
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        alert(`"${nombre}" fue agregado al carrito.`);
+      });
+    });
+  </script>
+</body>
+</html>

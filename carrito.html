@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carrito - VELURA</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+  <style>
+    #lista-carrito {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+
+    #lista-carrito li {
+      background-color: #f9f9f9;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    #lista-carrito button {
+      background-color: crimson;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #lista-carrito button:hover {
+      background-color: darkred;
+    }
+
+    #total {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .btn-vaciar {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .btn-vaciar:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Carrito de Compras</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="mujer.html">Mujer</a></li>
+        <li><a href="hombre.html">Hombre</a></li>
+        <li><a href="ninos.html">Niños</a></li>
+        <li><a href="bebes.html">Bebés</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="seccion">
+      <h2>Productos en tu carrito</h2>
+      <ul id="lista-carrito"></ul>
+      <h3 id="total"></h3>
+      <button class="btn-vaciar" onclick="vaciarCarrito()">Vaciar carrito</button>
+    </section>
+  </main>
+
+  <footer>
+    <p><a href="index.html">← Volver al inicio</a></p>
+  </footer>
+
+  <script>
+    function mostrarCarrito() {
+      const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      const lista = document.getElementById("lista-carrito");
+      const total = document.getElementById("total");
+      lista.innerHTML = "";
+
+      let suma = 0;
+
+      if (carrito.length === 0) {
+        lista.innerHTML = "<li>No hay productos en el carrito.</li>";
+        total.textContent = "";
+        return;
+      }
+
+      carrito.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <span>${item.nombre} - $${item.precio.toFixed(2)} MXN</span>
+          <button onclick="eliminarProducto(${index})">Eliminar</button>
+        `;
+        lista.appendChild(li);
+        suma += item.precio;
+      });
+
+      total.textContent = `Total: $${suma.toFixed(2)} MXN`;
+    }
+
+    function eliminarProducto(index) {
+      let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      carrito.splice(index, 1);
+      localStorage.setItem("carrito", JSON.stringify(carrito));
+      mostrarCarrito();
+    }
+
+    function vaciarCarrito() {
+      localStorage.removeItem("carrito");
+      mostrarCarrito();
+    }
+
+    mostrarCarrito();
+  </script>
+</body>
+</html>
